@@ -1,0 +1,24 @@
+{% extends "base.html" %}  
+  {% block header %}
+
+  {% endblock header %}
+    
+  {% block content  %}
+    <body>
+
+        <div class="container">
+            <div class="alert alert-success" role="alert">
+                <p>タイトル：{{object.title}}</p>    
+                <p>投稿者：{{object.author}}</p>    
+                <p><img src="{{object.snsimage.url}}" width=300px></p>    
+                <p>本文：{{object.content}}</p>
+                <a class="btn btn-primary" href="{% url 'good' object.pk %}" role="button">いいね</a>
+                <a class="btn btn-primary" href="{% url 'read' object.pk %}" role="button">既読</a>    
+                <a class="btn btn-primary" href="{% url 'list' %}" role="button">戻る</a>    
+            </div>
+        </div>
+        
+    <a href="{% url 'logout' %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">logout</a>
+
+    </body>
+  {% endblock content  %}

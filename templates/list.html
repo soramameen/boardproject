@@ -1,0 +1,25 @@
+{% extends "base.html" %}  
+  {% block header %}
+  
+  {% endblock header %}
+    
+  {% block content  %}
+    <body>
+        {% for item in object_list %}
+
+        <div class="container">
+            <div class="alert alert-success" role="alert">
+                <p>タイトル：<a href="{% url 'detail' item.pk %}">{{item.title}}</a></p>    
+                <p>投稿者：{{item.author}}</p>
+                <p>👍 いいね{{ item.good }}人</p>
+                <p>👀 既読{{item.read}}人</p>
+    
+            </div>
+        </div>
+        
+        {% endfor %}
+    <a href="{% url 'logout' %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">logout</a>
+    <a href="{% url 'create' %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">create</a>
+
+    </body>
+  {% endblock content  %}
